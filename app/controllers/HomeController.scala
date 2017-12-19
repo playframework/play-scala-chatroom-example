@@ -19,7 +19,8 @@ import scala.concurrent.{ExecutionContext, Future}
 class HomeController @Inject()(cc: ControllerComponents)
                               (implicit actorSystem: ActorSystem,
                                mat: Materializer,
-                               executionContext: ExecutionContext) 
+                               executionContext: ExecutionContext,
+                               webJarsUtil: org.webjars.play.WebJarsUtil) 
                                extends AbstractController(cc) with RequestMarkerContext {
 
   private type WSMessage = String
