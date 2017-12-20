@@ -1,6 +1,6 @@
 package controllers
 
-import java.net.URL
+import java.net.URI
 import javax.inject._
 
 import akka.actor.ActorSystem
@@ -104,7 +104,7 @@ class HomeController @Inject()(cc: ControllerComponents)
    */
   private def originMatches(origin: String): Boolean = {
     try {
-      val url = new URL(origin)
+      val url = new URI(origin)
       url.getHost == "localhost" &&
         (url.getPort match { case 9000 | 19001 => true; case _ => false })
     } catch {
